@@ -1,0 +1,29 @@
+No Projeto de CES-22 feito por Leo Gomes e Lourenço Neto, o NewsCrawler, pode-se verificar a utilização dos
+principios SOLID de Design Pattern em:
+
+Single Responsability: As etapas desenvolvidas realmente possuem uma única responsabilidade
+
+    Web Scrapper: Mexe nas páginas da web para captação de informações relativas a notícias
+    Classificadores: Cada classificador é responsavel pela classificaçao de acordo com o metodo no qual se baseia, um para unigrama,
+                     um para bigrama.
+    Aplicação Flask: O arquivo app.py é responsável por fazer o programa funcionar
+                     O arquivo home.py é responsável por gerenciar o roteamento de urls, que criará interfaces com o qual o
+                     usuário possa interagir.
+                     Os templates são responsáveis por definir como a interface irá aparecer para o usuário.
+
+Open Closed Design: O projeto atende razoavelmente esse quesito, visto que existe uma classe específica para dar o "run" no programa,
+                    mas ela só importa para o funcionamento das classes do programa home.py
+
+
+Linskov Substitution: Os programas não foram desenvolvidos com a interface de classe especificamente. Então, não tem a relação entre subclasse e classe.
+                      Porem, Caso todo o programa fosse convertido para classe, nao haveria uma mudança brusca na essencia do projeto.
+
+Interface Segretation: Novamente, como a criação do projeto não foi dividido exatamente com o uso de classes, essa análise não será feito ao pé da letra:
+                       As interfaces geradas por cada etapa do projeto realmente são únicas e essenciais para atender a responsabilidade de cada uma delas.
+                       No entanto, o programa home.py seria uma classe muito poderosa, pois ela determina todo o processo de interação do usuário com o site. Logo, esse quesito não foi atendido.
+
+Dependency Injection: Os detalhes de cada etapa do projeto eram altamente dependentes da abstração necessárias para sua funcionalidade:
+
+    Web Scrapper: Os detalhes necessários para sua implementação dependem de como os dados estão dispostos e como eles precisão ser armazenados
+    Classificadores: Os detalhes de cada classificador dependem de como aquele classificador precisaria retornar o resultado baseado no seu modelo
+    Aplicação Flask: Os detalhes da aplicação dependem de como as informações irão ser dispostas. Isso inclui os dados necessários e sua forma de exposição
